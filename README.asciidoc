@@ -2,4 +2,4 @@
 Forked from https://github.com/neo4j-contrib/neo4j-jdbc[neo4j-contrib/neo4j-jdbc]
 
 To use statements including colon (:) from SQL Workbench/J setEscapeProcessing silently does nothing if set to false.
-E.g. CREATE INDEX ON :MyNodeType(`MyNodeProperty`)
+E.g. CREATE INDEX ON :MyNodeType(\`MyNodeProperty\`)
