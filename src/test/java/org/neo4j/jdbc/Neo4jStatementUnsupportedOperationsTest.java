@@ -18,12 +18,14 @@
  */
 package org.neo4j.jdbc;
 
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLFeatureNotSupportedException;
 
 import org.junit.Test;
 import org.junit.Ignore;
+import static org.junit.Assert.*;
 
 public class Neo4jStatementUnsupportedOperationsTest extends Neo4jJdbcTest
 {
@@ -57,10 +59,15 @@ public class Neo4jStatementUnsupportedOperationsTest extends Neo4jJdbcTest
         conn.createStatement().setMaxRows( 1 );
     }
 
-    @Test(expected = SQLFeatureNotSupportedException.class)
+    @Test
     public void testSetEscapeProcessingIsUnsupported() throws Exception
     {
-        conn.createStatement().setEscapeProcessing( false );
+    	try {
+    		conn.createStatement().setEscapeProcessing( false );
+    	} catch (SQLFeatureNotSupportedException e) {
+    		fail("Using setEscapeProcessing should not throw exception");
+    	}
+    	assertTrue(true);
     }
 
     @Test(expected = SQLFeatureNotSupportedException.class)

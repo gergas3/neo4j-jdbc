@@ -95,7 +95,8 @@ public class Neo4jStatement
     @Override
     public void setEscapeProcessing( boolean b ) throws SQLException
     {
-        throw unsupported( "setEscapeProcessing" );
+    	if (b)
+    		throw unsupported( "setEscapeProcessing" );
     }
 
     @Override
